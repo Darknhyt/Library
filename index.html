@@ -4,9 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="Script.js" defer></script>
 </head>
-<body style="background-color: black;">
-    
+<body>
+    <header>
+        <h1>LIBRARY</h1>
+        <button id="add">Register Book</button>
+    </header>
+    <section>
+        <table id="list">
+            <tr>
+                <th>BOOK</th>
+                <th>AUTOR</th>
+                <th>PAGES</th>
+                <th>STATUS</th>
+            </tr>
+        </table>
+    </section>
+    <dialog id="add-panel" hidden>
+        <div><h2>Register</h2><button id="close" title="Close"><span class="material-symbols-outlined">close</span></button></div>
+        <div class="input"><label for="input-title">Book</label><input type="text" id="input-title" placeholder="Tittle..." required></div>
+        <div class="input"><label for="input-autor">Autor</label><input type="text" id="input-autor" placeholder="Autor..." required></div>
+        <div class="input"><label for="input-pages">Pages</label><div><input type="number" id="input-pages" placeholder="0"><button id="register">Add book</button></div></div>
+    </dialog>
 </body>
 </html>

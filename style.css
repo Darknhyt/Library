@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color: #164863;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1rem;
+}
+header{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100svw;
+}
+h2{
+    margin: 0;
+}
+table {
+    border: 2px outset cyan;
+    border-collapse: collapse;
+}
+td,th {
+    border: 1px outset cyan;
+    padding: 1rem;
+}
+tr:hover{
+    background-color: #005;
+}
+button {
+    background-color: #64CCC5;
+    border-radius: 10px;
+    padding: 0.4em 1em;
+    cursor: pointer;
+}
+label {
+    margin: 0.6em 0;
+}
+dialog {
+    visibility: hidden;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    transition: transform 0.4s;
+    width: 12em;
+    background-color: #427D9D;
+    top: -100%;
+}
+dialog > div:first-child {
+    display: flex;
+    justify-content: space-between;
+}
+.input{
+    display: flex;
+    flex-direction: column;
+}
+.input div:last-child{
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+input[type="number"]{
+    width: 5em;
+}
+dialog > button:last-child{
+    width: 8em;
+    height: 3em;
+}
+#close{
+    padding: 0;
+    color: red;
+    background-color: rgba(255, 0, 0, 0.5);
+    background-color: transparent;
+    border-color: transparent;
+}
+tr span{
+    border-color: transparent;
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    visibility: hidden;
+}
+tr span:hover{
+    color: red;
+}
+tr:hover span{
+    visibility: visible;
+}
