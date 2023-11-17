@@ -4,23 +4,30 @@
 body {
     background-color: #164863;
     color: #fff;
+    font-family: Georgia,'Times New Roman', serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: 1rem;
+    margin: 0;
 }
 header{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
+    padding: 0 2em;
     width: 100svw;
+    background-color: rgb(0, 15, 58);
+    margin-bottom: 1em;
 }
 h2{
     margin: 0;
 }
 table {
-    border: 2px outset cyan;
     border-collapse: collapse;
+    width: min(48em,100svw);
+    margin: 0 auto;
+    position: relative;
 }
 td,th {
     border: 1px outset cyan;
@@ -36,7 +43,7 @@ button {
     cursor: pointer;
 }
 label {
-    margin: 0.6em 0;
+    margin: 0.2em 0;
 }
 dialog {
     visibility: hidden;
@@ -45,11 +52,12 @@ dialog {
     font-weight: bold;
     display: flex;
     flex-direction: column;
-    gap: 0px;
+    gap: 1em;
     transition: transform 0.4s;
-    width: 12em;
+    width: 14em;
     background-color: #427D9D;
     top: -100%;
+    left: 60%;
 }
 dialog > div:first-child {
     display: flex;
@@ -59,13 +67,20 @@ dialog > div:first-child {
     display: flex;
     flex-direction: column;
 }
-.input div:last-child{
+input:valid{
+    border-color: aquamarine;
+}
+dialog > div:nth-child(4){
     display: flex;
-    justify-content: space-between;
-    align-items: start;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.6em;
 }
 input[type="number"]{
-    width: 5em;
+    width: 6em;
+}
+.status-input{
+    font-weight: 400;
 }
 dialog > button:last-child{
     width: 8em;
@@ -78,16 +93,54 @@ dialog > button:last-child{
     background-color: transparent;
     border-color: transparent;
 }
+tr{
+    display: flex;
+    align-items: stretch;
+}
+td, th{
+    flex: 1;
+}
+
+th:first-child,
+td:first-child{
+    flex: 3 0 0;
+}
+th:nth-child(2),
+td:nth-child(2){
+    flex: 2;
+}
+td:nth-child(3){
+    text-align: center;
+}
+
 tr span{
-    border-color: transparent;
     cursor: pointer;
     position: absolute;
-    z-index: 1;
     visibility: hidden;
+}
+tr span[title="Delete book"]{
+    right: 0em;
 }
 tr span:hover{
     color: red;
 }
+tr span[title="Change Status"]{
+    right: 4.2em;
+}
+tr span:hover[title="Change Status"]{
+    color: rgb(0, 140, 255);
+}
 tr:hover span{
     visibility: visible;
+}
+select {
+    position: absolute;
+    margin: 0;
+    width: 7em;
+    padding: 0.1em 0;
+    border-radius: 3px;
+}
+option {
+    background-color: #164863;
+    color: #fff;
 }
