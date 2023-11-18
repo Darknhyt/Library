@@ -42,6 +42,10 @@ button {
     padding: 0.4em 1em;
     cursor: pointer;
 }
+button:active{
+    background-color: #48a19a;
+    border-style: inset;
+}
 label {
     margin: 0.2em 0;
 }

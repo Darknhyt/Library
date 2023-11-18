@@ -4,7 +4,7 @@ const myLibrary = [];
 let id = 0;
 function Book(title = "No title", autor = "No autor", pages = 0, readInfo = "Not read yet") {
     this.id = id;
-    this.title = title == ""? "No specified itle":title;
+    this.title = title == ""? "No specified title":title;
     this.autor = autor == ""? "No specified autor":autor;
     this.pages = pages;
     this.readInfo = readInfo;
@@ -18,6 +18,9 @@ function init() {
     addBookToLibrary(new Book("Harry Potter", "J. K. Rowling", 320));
     addBookToLibrary(new Book("The Crow", "Edgar Allan Poe", 160));
     events();
+    Book.prototype.chanceReadStatus = function(val){
+        this.readInfo = val;
+    }
 }
 
 function addBookToLibrary(book) {
@@ -93,7 +96,7 @@ function editEvent(id){
     edit.value = bookId(id).readInfo;
     edit.addEventListener("input",()=>{ 
         edit.parentElement.innerHTML = edit.value;
-        bookId(id).readInfo = edit.value;
+        bookId(id).chanceReadStatus(edit.value);
     });
     return edit;
 }
