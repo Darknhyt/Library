@@ -1,16 +1,18 @@
 const table = document.getElementById("list");
 const panel = document.getElementById("add-panel");
 const myLibrary = [];
-let id = 0;
-function Book(title = "No title", autor = "No autor", pages = 0, readInfo = "Not read yet") {
-    this.id = id;
-    this.title = title == ""? "No specified title":title;
-    this.autor = autor == ""? "No specified autor":autor;
-    this.pages = pages;
-    this.readInfo = readInfo;
-    this.info = function () {
-        return `${title} by ${autor}, ${pages} pages, ${this.readInfo}`;
-    };
+let currentID = 0;
+class Book {
+    constructor(title, autor, pages = 0, readInfo = "Not read yet"){
+        this.id = currentID;
+        this.title = title == "" ? "No specified title" : title;
+        this.autor = autor == "" ? "No specified autor" : autor;
+        this.pages = pages;
+        this.readInfo = readInfo;
+    }
+    get info () {
+     return `${this.title} by ${this.autor}, ${this.pages} pages, ${this.readInfo}`;
+     }
 }
 init();
 function init() {
@@ -18,7 +20,7 @@ function init() {
     addBookToLibrary(new Book("Harry Potter", "J. K. Rowling", 320));
     addBookToLibrary(new Book("The Crow", "Edgar Allan Poe", 160));
     events();
-    Book.prototype.chanceReadStatus = function(val){
+    Book.prototype.chanceReadStatus = function (val) {
         this.readInfo = val;
     }
 }
@@ -26,7 +28,7 @@ function init() {
 function addBookToLibrary(book) {
     myLibrary.push(book);
     uploadRow(book);
-    id++;
+    currentID++;
 }
 
 function uploadRow(book) {
@@ -87,20 +89,20 @@ function editButton() {
     return edit;
 }
 
-function editEvent(id){
+function editEvent(id) {
     const edit = document.createElement("select");
-    edit.name ="reading-status";
+    edit.name = "reading-status";
     edit.innerHTML = `<option value="Not read yet">Not read yet</option>
         <option value="Reading">Reading</option>
         <option value="Finishied">Finishied</option>`;
     edit.value = bookId(id).readInfo;
-    edit.addEventListener("input",()=>{ 
+    edit.addEventListener("input", () => {
         edit.parentElement.innerHTML = edit.value;
         bookId(id).chanceReadStatus(edit.value);
     });
     return edit;
 }
 
-function bookId(id){
+function bookId(id) {
     return myLibrary[myLibrary.findIndex(b => b.id == id)];
 }
